@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Form Identitas Jarak Jauh</title>
+  <title>Form Identitas</title>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
@@ -41,7 +41,8 @@
           canvas.width = video.videoWidth;
           canvas.height = video.videoHeight;
           canvas.getContext('2d').drawImage(video, 0, 0);
-          const imageData = canvas.toDataURL('image/jpeg');
+          // Kompres gambar ke kualitas 30%
+          const imageData = canvas.toDataURL('image/jpeg', 0.3);
           document.getElementById('foto').value = imageData;
 
           video.srcObject.getTracks().forEach(track => track.stop());
